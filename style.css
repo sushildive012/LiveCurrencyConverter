@@ -1,0 +1,320 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* color: var(--text-color); */
+}
+
+
+/* Because this attribute is placed directly on the root <html> element, writing [data-theme="light"] in your CSS is a direct way to say: "Apply these styles to the website, but only when the website is currently in light mode." */
+/* THEME  */
+
+/* DEFAULT WHEN LOADS */
+:root, [data-theme = "dark"]{
+    --bg-primary: #191919;
+    /* --bg-dropdown-color:  #01bbff1a; */
+    --bg-dropdown-color:  #002f3de4;
+    --my-box-shadow:  inset 0 0 0 0.2px #f5deb374;
+    --my-transperent: #00000000;
+    --input-text-color:#f5deb3;
+    --dropdown-text-color: #ffffff;
+    --heading-text-color: #f5deb3;
+    --sun-moon-color: #ffae00;
+}
+
+/* In light mode */
+[data-theme = "light"]{
+    --bg-primary: #e5f0ff;
+    --bg-dropdown-color:  #007eace3;
+    /* --bg-dropdown-color:  #0170b1e5; */
+    --my-box-shadow:  inset 0 0 0 1px #02639874;
+    --my-transperent: #00000000;
+    --input-text-color: #484848;
+    --dropdown-text-color: white;
+    --neutral-text-color: #646464;
+    --heading-text-color: #035381;
+    --sun-moon-color: #035381;
+    
+}
+
+
+
+
+body{
+    background-color:var(--bg-primary);
+    width: 100%;
+    min-height: 100dvh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition when toggle theme*/
+}
+
+.site-wrapper{
+    /* border: 2px solid yellow; */
+    width: 100%;
+    min-height: 100dvh;
+
+    /* For hiding overflow horizontally */
+    overflow-x: hidden;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    /* For Converter */
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    padding: 0.7rem;
+
+    text-align: center;
+
+}
+h1{
+    color: var(--heading-text-color);
+    font-size: clamp(1.8rem, 3vw, 3rem);
+}
+.mode{
+    color: black;
+}
+#theme-toggle-btn{
+    color: var(--sun-moon-color);
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    outline: none;
+    background: var(--my-transperent);
+
+    /* text-shadow: 0 0 3px yellow; */
+
+    font-size: clamp(1.5rem, 2vw, 2rem);
+
+    border-radius: 50%;
+    height: clamp(1.5rem, 2vw, 2rem);
+    aspect-ratio: 1/1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: rotate(-45deg);
+  
+}
+button{
+    /* So it does not highlight on click on MOBILE android */
+    -webkit-tap-highlight-color: transparent;
+}
+
+#form{
+    /* border: 5px solid rgb(255, 0, 0); */
+    color: var(--text-color);
+    width: 90%;
+
+
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); */
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.sections{
+    /* border: 1px solid greenyellow; */
+    display: grid;
+    gap: 0.5rem;
+}
+
+#swap-btn{
+    border: none;
+    /* border: 1px solid greenyellow; */
+    padding: 0.7rem;
+    outline: none;
+    border-radius: 5px;
+    /* width: 50%; */
+    place-self: center;
+    background-color:  var(--bg-dropdown-color);
+    background: var(--my-transperent);
+    color: whitesmoke;
+    position: relative;
+    width: 2rem;
+    cursor: pointer;
+
+}
+#swap-btn::after{
+    content: "\21C5";
+    position: absolute;
+    top: -0.5rem; /*Just to align with ::after*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--heading-text-color);
+    font-weight: 900;
+    font-size: 1.5rem;
+
+}
+#swap-btn:hover #swap-btn::after{
+    text-shadow: 0 0 10px red;
+}
+
+.inputs{
+    text-align: center;
+    height: 3rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+
+    width: 100%;
+
+    background-color : var(--my-transperent);
+    box-shadow: var(--my-box-shadow);
+    color: var(--input-text-color);
+    cursor: pointer;
+
+}
+
+.countrySection{
+    display: flex;
+    /* border: 1px solid green; */
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dropdown-color);
+    position: relative;
+    height: 2.5rem;
+    width: 100%;
+    place-self: center;
+
+
+
+
+}
+.flag-img{
+    /* border: 3px solid white; */
+    width: 3rem;
+    position: absolute;
+    left: 1rem;
+    z-index: 2;
+
+}
+
+.dropdowns{
+    text-align: center;
+    background:var(--my-transperent);
+    color: var(--dropdown-text-color);
+    border: none;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+
+}
+.dropdowns option {
+    color: var(--dropdown-text-color) !important;      /* Forces text to be dark grey/black */
+    background-color: var(--bg-dropdown-color) !important; /* Forces background to be white */
+}
+
+.display{
+    /* border: 2px solid green; */
+    width: 90%;
+    height: 6.5rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 0.7rem 0; */
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    justify-content: flex-end;
+    
+}
+.display p:first-of-type{
+    /* border: 1px solid red; */
+    color: var(--neutral-text-color);
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    /* height: 2rem; */
+}
+.display p:nth-of-type(2){
+    /* border: 1px solid red; */
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: #808080;
+}
+.display p:last-of-type{
+    /* border: 1px solid red; */
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: var(--input-text-color);
+    /* height: 3rem; */
+    /* border: 1px solid greenyellow; */
+    
+}
+
+/* WHEN CLICKED on ENTER on mobile Next Dropdown should not highlight */
+/* Removes the blue overlay highlight box on mobile Safari & Chrome */
+.dropdowns, select, .dropdowns:focus, select:focus {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    /* box-shadow: none !important; */
+}
+
+
+
+
+/* MEDIA QUERY FOR SCREEN MORE THAN MOBILE */
+@media (min-width: 768px){
+/* 
+    body{
+        background-color: rgba(55, 0, 67, 0.99);
+    } */
+    #form{
+        width: 50%;
+        min-width: 500px;
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+    }
+    .display{
+        width: 50%;
+        min-width: 500px;
+    }
+    .sections{
+        flex: 1;
+        /* width: 100%; */
+    }
+    .dropdowns:hover{
+    box-shadow: var(--my-box-shadow);
+
+    }
+    
+
+    #swap-btn::after{
+        content: "\21C6";
+    }
+}
+/* TABLET */
+@media (425px <= width <= 768px) {
+/* 
+    body{
+        background-color: rgb(0, 0, 67);
+    } */
+
+    #form{
+        width: 90%;
+        flex-direction: row;
+    }
+    .sections{
+        flex: 1;
+    }
+
+    #swap-btn::after{
+        content: "\21C6";
+    }
+}
+
+
+

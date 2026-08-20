@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRENCY CONVERTER</title>
+
+    <script>
+        // Initially Browser tries to render White when JS is not yet loaded so first we load JS with theme preferences being set
+        const savedTheme = localStorage.getItem('theme'); //first access from local
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; //if system is in dark mode then this
+        const targetTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', targetTheme);
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/assets/rupee.png">
+
+</head>
+<body>
+    
+    <div class="site-wrapper">
+        
+        <h1>Currency Converter</h1>
+        
+        <!-- To change Theme -->
+        <button type="button" onclick="toggleTheme()" id="theme-toggle-btn">
+        </button>
+  
+        <div class="display">
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+        <!-- CURRENCY CONVERTER FORM -->
+        <form action="" id="form">
+            
+            
+            
+            <div class="from-section sections">
+                
+                <!-- input -->
+                <input type="number" id="from-input-amt" placeholder="from" class="inputs" inputmode="decimal">
+
+
+                <div class="countrySection">
+
+                    <!-- flag image -->
+                    <img src="https://flags.restcountries.com/v5/w160/in-4x3.png" alt="" id="from-flag-img" class="flag-img">
+                    <!-- <img src="https://flags.restcountries.com/v5/w160/in-4x3.png" alt="" id="from-flag-img" class="flag-img"> -->
+                    
+                    <!-- SelectFrom -->
+                    <select name="from" id="selectFrom" class="dropdowns">
+                    </select>
+
+                </div>
+                
+                
+            </div>
+
+            <button id="swap-btn" type="button"></button>
+            
+            <!-- TO SECTION -->
+            <div class="to-section sections">
+                
+                <!-- input -->
+                <input type="number" id="to-input-amt" placeholder="to" class="inputs" inputmode="decimal">
+
+
+                <div class="countrySection">
+    
+    
+                    <!-- flag image -->
+                    <img src="https://flags.restcountries.com/v5/w160/us-4x3.png" alt="" id="to-flag-img" class="flag-img">
+                    <!-- SelectTo -->
+                    <select name="to" id="selectTo" class="dropdowns">
+        
+                    </select>
+    
+                </div>
+
+            </div>
+
+            
+            <!-- 3rd section, removed as not needed we are doing API call Live user Input -->
+            <!-- <button type="submit" class="btn">
+                Convert
+            </button> -->
+        </form>
+
+
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="debounce.js"></script> -->
+</body>
+</html>
