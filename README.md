@@ -23,7 +23,7 @@ A live currency converter built with **HTML, CSS, and vanilla JavaScript** — r
 - **`async/await` + `fetch`** — real API integration instead of static/mock data, with `try/catch` for failed requests
 - **Debouncing from scratch** — wrote my own `debounce()` closure wrapping the conversion call, instead of importing one, so I understand *why* it prevents API spam
 - **Cache-first loading** — check `sessionStorage` before hitting the network, so the currency list only calls the API once per session
-- **Theming without a framework** — `data-theme="dark"/"light"` on `<html>` + CSS variables, with a pre-paint inline `<script>` in `<head>` to avoid a white-flash before JS loads
+- **Theming without a framework** — `data-theme="dark"/"light"` on `<html>` + CSS variables, with a pre-paint inline `<script>` in `<head>` to avoid a white-flash before JS loads, seperate `theme.js` & `converter.js` for best practice
 - **Event delegation on forms** — single `input`/`change` listener on `#form` handles both amount fields and both dropdowns, filtered by `e.target`
 
 ![Run Locally](assets/banner_run.svg)

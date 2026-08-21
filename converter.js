@@ -7,8 +7,6 @@ const toInputAmt = document.querySelector("#to-input-amt");
 const fromInputAmt = document.querySelector("#from-input-amt");
 const displayField = document.querySelector(".display");
 const swapBtn = document.querySelector("#swap-btn");
-const toggleThemeBtn = document.querySelector("#theme-toggle-btn");
-
 
 // To populate dropdowns
 function populateCurrencyDropdown(currencyArray){
@@ -44,10 +42,12 @@ function reset(){
     convert(fromInputAmt, toInputAmt);
 }    
 
+
+
 //GET CURRENCY DATA FROM NETWORK AND STOREIN SESSION STORAGE CACHE
 async function getCurrencyAPIData() {
 
-try{
+    try{
 
         const res = await fetch(`https://api.frankfurter.dev/v2/currencies`);
         const data = await res.json();
@@ -111,61 +111,6 @@ initializeApp();
 
 //-----THIS PREVENTS UNECESSARY NEW API CALL ON EACH REFRESH-------
 
-
-
-
-
-
-//TOGGLE THEME DARK /LIGHT
-// RUN IMMEDIATELY ON LOAD: Check and applies saved theme
-function initializeTheme() {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem('theme');
-    
-    // Check device system preference second (returns true if system is dark mode)
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Determine target theme: use saved theme, or fallback to system preference, default to light
-    let targetTheme = 'light';
-    if (savedTheme) {
-        targetTheme = savedTheme;
-    } else if (systemPrefersDark) {
-        targetTheme = 'dark';
-    }
-
-    // ALSO TOGGLE THEME BUTTON SUN/ MOON(when LOADED)
-    // Replace &#x with \u{ and close with }
-    toggleThemeBtn.textContent = targetTheme === "dark" ? "\u{2600}\u{FE0E} " : "\u{263E}\u{FE0E} ";
-
-
-
-    
-    // Apply theme to the HTML tag
-    document.documentElement.setAttribute('data-theme', targetTheme);
-}
-
-// Call the function instantly when the file loads
-initializeTheme();
-
-// TOGGLE FUNCTION: Connected to your dark mode button click event
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    
-    // Flip the value
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    // Update the HTML element
-    document.documentElement.setAttribute('data-theme', newTheme);
-
-    // ALSO TOGGLE THEME BUTTON SUN/ MOON(when Clicked)
-    // Replace &#x with \u{ and close with }
-    toggleThemeBtn.textContent = newTheme === "dark" ? "\u{2600}\u{FE0E} " : "\u{263E}\u{FE0E} ";
-
-
-
-    // Save to localStorage so it persists on reload
-    localStorage.setItem('theme', newTheme);
-}
 
 
 
@@ -293,8 +238,11 @@ function convert(trigerredInput, otherInput){
         // for DEBUGGING 2 lines(input event is also triggered by select so avoid it)
         // console.log(`Triggered Input is ${trigerredInput}`);
         // console.log(`Other Input is ${otherInput}`);
-    })    
-
+    })
+    .catch(err => {
+        console.log("Conversion Failed");
+        otherInput.value = "Error";
+    });
 
 
 
