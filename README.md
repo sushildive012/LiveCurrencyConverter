@@ -2,7 +2,7 @@
 
 A live currency converter built with **HTML, CSS, and vanilla JavaScript** — real-time rates via the Frankfurter API, no frameworks.
 
-🔗 **Live Demo:** [your-username.github.io/repo-name](#) <!-- replace with your GitHub Pages link -->
+🔗 **Live Demo:** [Click here to View](#https://sushildive012.github.io/LiveCurrencyConverter/) <!-- replace with your GitHub Pages link -->
 
 <!--![Preview](assets/preview.png) -->
 
@@ -28,7 +28,7 @@ A live currency converter built with **HTML, CSS, and vanilla JavaScript** — r
 
 ![Run Locally](assets/banner_run.svg)
 ```bash
-git clone https://github.com/your-username/repo-name.git
+git clone https://github.com/sushildive012/LiveCurrencyConverter.git
 cd repo-name
 # open index.html in your browser
 ```
