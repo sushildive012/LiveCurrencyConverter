@@ -1,8 +1,9 @@
 ![Live Currency Converter](assets/banner_title.svg)
 
-A live currency converter built with **HTML, CSS, and vanilla JavaScript** — real-time rates via the Frankfurter API, no frameworks.
+- A live currency converter built with **HTML, CSS, and vanilla JavaScript**
+- real-time rates via the Frankfurter API, no frameworks.
 
-🔗 **Live Demo:** [Click here to View](#https://sushildive012.github.io/LiveCurrencyConverter/) <!-- replace with your GitHub Pages link -->
+🔗 **Live Demo:** [Click here to View](https://sushildive012.github.io/LiveCurrencyConverter/)
 
 <!--![Preview](assets/preview.png) -->
 
@@ -17,7 +18,9 @@ A live currency converter built with **HTML, CSS, and vanilla JavaScript** — r
 - 🏳️ Flags fetched dynamically from ISO currency code → country flag mapping
 
 ![Tech Stack](assets/banner_tech.svg)
-`HTML5` · `CSS3` (custom properties, `data-theme` theming) · `Vanilla JS` (`async/await`, `fetch`, debounce, `sessionStorage`/`localStorage`)
+- `HTML5`
+- `CSS3` (custom properties, `data-theme` theming)
+- `Vanilla JS` (`async/await`, `fetch`, debounce, `sessionStorage`/`localStorage`)
 
 ![What I Learned](assets/banner_learned.svg)
 - **`async/await` + `fetch`** — real API integration instead of static/mock data, with `try/catch` for failed requests
